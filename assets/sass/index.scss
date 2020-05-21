@@ -11,26 +11,91 @@
 @import "node_modules/bootstrap-scss/grid";
 
 body {
-  background: red;
+	animation: gradient 15s ease infinite;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  min-height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.wrapper {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  height: 100vh;
+  justify-content: center;
+
+  .heart {
+    align-items: center;
+    background: #333333;
+    border-radius: 4px;
+    color: white;
+    display: flex;
+    padding: 6px 10px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background: #484848;
+    }
+
+    p {
+      font-size: 10px;
+      margin: 0;
+    }
+
+    span {
+      background: #d61c1c;
+      display: block;
+      height: 6px;
+      margin-left: 10px;
+      position: relative;
+      transform: rotate(45deg);
+      width: 6px;
+
+      &:after, &::before {
+        content: '';
+        background: #d61c1c;
+        border-radius: 100%;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+      }
+
+      &:after {
+        right: 0;
+        top: -50%;
+      }
+
+      &::before {
+        right: 50%;
+        top: 0;
+      }
+    }
+  }
 }
 
 @include media-breakpoint-up(sm) {
-  body {
-    background: purple;
-  }
 }
+
 @include media-breakpoint-up(md) {
-  body {
-    background: yellow;
-  }
 }
+
 @include media-breakpoint-up(lg) {
-  body {
-    background: green;
-  }
 }
+
 @include media-breakpoint-up(xl) {
-  body {
-    background: pink;
-  }
 }
